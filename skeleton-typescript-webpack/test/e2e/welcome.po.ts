@@ -1,3 +1,5 @@
+import {browser, element, by, By, $, $$, ExpectedConditions} from 'aurelia-protractor-plugin/protractor';
+
 export class PageObject_Welcome {
   getGreeting() {
     return element(by.tagName('h2')).getText();
@@ -22,8 +24,10 @@ export class PageObject_Welcome {
   }
 
   openAlertDialog() {
-    return browser.wait(() => {
-      this.pressSubmitButton();
+    return browser.wait(async () => {
+      await this.pressSubmitButton();
+
+      await browser.wait(ExpectedConditions.alertIsPresent(), 5000);
 
       return browser.switchTo().alert().then(
         // use alert.accept instead of alert.dismiss which results in a browser crash

@@ -14,7 +14,7 @@
  */
 Error.stackTraceLimit = Infinity;
 
-require('../index');
+require('aurelia-bootstrapper-webpack');
 
 /*
  * Ok, this is kinda crazy. We can use the the context method on
@@ -25,7 +25,7 @@ require('../index');
  * any file that ends with spec.js and get its path. By passing in true
  * we say do this recursively
  */
-var testContext = require.context('./unit', true, /\.spec\.(ts|js)/);
+var testContext = require.context('./unit', true, /\.spec\.(ts|js)$/);
 
 /*
  * get all the files, for each file, call the context function

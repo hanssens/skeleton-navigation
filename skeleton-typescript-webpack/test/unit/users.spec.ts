@@ -1,12 +1,12 @@
-import {HttpClient} from 'aurelia-fetch-client';
 import './setup';
+import {HttpClient} from 'aurelia-fetch-client';
 import {Users} from '../../src/users';
 
 class HttpStub extends HttpClient {
   url;
   itemStub;
   
-  fetch(url) {
+  fetch(url): any {
     var response = this.itemStub;
     this.url = url;
     return new Promise((resolve) => {
